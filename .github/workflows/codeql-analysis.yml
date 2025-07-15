@@ -7,7 +7,7 @@ on:
     branches: [master]
   schedule:
     - cron: "26 4 * * 0"
-    
+
 permissions:
   contents: read
   security-events: write
@@ -23,18 +23,15 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          submodules: recursive
+        uses: actions/checkout@v3 # Consider upgrading checkout to v3 as well, though v2 might still work
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v1
+        uses: github/codeql-action/init@v2 # <--- CHANGE THIS LINE FROM v1 TO v2
         with:
           languages: csharp
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v1
+        uses: github/codeql-action/autobuild@v2 # <--- CHANGE THIS LINE FROM v1 TO v2
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v1
+        uses: github/codeql-action/analyze@v2 # <--- CHANGE THIS LINE FROM v1 TO v2
