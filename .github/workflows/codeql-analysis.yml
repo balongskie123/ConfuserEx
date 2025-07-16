@@ -41,7 +41,7 @@ jobs:
           languages: csharp
           
       - name: Build with MSBuild
-        run: msbuild Confuser2.sln /p:Configuration=Release /p:Platform="Any CPU"
+        run: msbuild Confuser2.sln
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
