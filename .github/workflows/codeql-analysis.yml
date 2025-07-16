@@ -41,7 +41,7 @@ jobs:
 
       - name: Build with MSBuild
         # Update this line with the correct path to your solution file as well
-        run: msbuild ConfuserEx/ConfuserEx.sln /p:Configuration=Release /p:Platform=AnyCPU # <--- UPDATE THIS LINE WITH THE CORRECT PATH
+        run: msbuild ConfuserEx/Confuser2.sln /p:Configuration=Release /p:Platform=AnyCPU # <--- UPDATE THIS LINE WITH THE CORRECT PATH
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
