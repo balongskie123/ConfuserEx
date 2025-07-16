@@ -23,26 +23,25 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3 # Ensure this is v3 or higher
+        uses: actions/checkout@v3
 
       - name: Setup MSBuild
-        uses: microsoft/setup-msbuild@v1.1 # Action to set up MSBuild
+        uses: microsoft/setup-msbuild@v1.1
 
       - name: Setup NuGet
-        uses: NuGet/setup-nuget@v2 # Action to set up NuGet for restoring packages
+        uses: NuGet/setup-nuget@v2
 
       - name: Restore NuGet packages
-        run: nuget restore ConfuserEx.sln # Replace ConfuserEx.sln with your actual solution file name if different
+        run: nuget restore ConfuserEx/Confuser2.sln # <--- UPDATE THIS LINE WITH THE CORRECT PATH
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3 # <--- CHANGE THIS LINE FROM v2 TO v3
+        uses: github/codeql-action/init@v3
         with:
           languages: csharp
 
       - name: Build with MSBuild
-        # This replaces autobuild. You'll need to specify your solution file.
-        # Replace 'ConfuserEx.sln' with the actual name of your solution file.
-        run: msbuild ConfuserEx.sln /p:Configuration=Release /p:Platform=AnyCPU
+        # Update this line with the correct path to your solution file as well
+        run: msbuild ConfuserEx/ConfuserEx.sln /p:Configuration=Release /p:Platform=AnyCPU # <--- UPDATE THIS LINE WITH THE CORRECT PATH
 
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3 # <--- CHANGE THIS LINE FROM v2 TO v3
+        uses: github/codeql-action/analyze@v3
